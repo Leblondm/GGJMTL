@@ -5,7 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float speed;
-    private Rigidbody2D rigidbody2D;
+    public float verticalSpeed;
+    private new Rigidbody2D rigidbody2D;
     
     // Start is called before the first frame update
     void Start()
@@ -22,9 +23,13 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
-        Vector2 movement = new Vector2(moveHorizontal, moveVertical);
+        Vector2 movement = new Vector2(moveHorizontal, 0);
         rigidbody2D.AddForce(movement * speed);
+
+        if (Input.GetButtonDown("Fire1")) {
+            Debug.Log("Patate!");
+            rigidbody2D.AddForce(new Vector2(0, verticalSpeed));
+        }
     }
 
 }
