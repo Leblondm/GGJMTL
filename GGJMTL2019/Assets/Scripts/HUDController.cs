@@ -12,7 +12,6 @@ public class HUDController : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(GameManager.Instance.isNormalWorld);
         GameObject.FindGameObjectWithTag("DarkWorldTimerBar").GetComponent<SpriteRenderer>().enabled = !GameManager.Instance.isNormalWorld;
     }
 }

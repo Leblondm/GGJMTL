@@ -23,4 +23,5 @@ public class GameManager
     public float otherWorldTimeout = 3f;
     public Scene currentSceneNormalWorld;
     public Scene currentSceneOtherWorld;
+    public Inventory inventory = new Inventory();
 }

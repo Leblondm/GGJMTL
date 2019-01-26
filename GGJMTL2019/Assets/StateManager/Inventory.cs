@@ -18,4 +18,12 @@ public class Inventory
 
         return inventory[item] > 0;
     }
+
+    public void addItem(ItemTypes item) {
+        if (!inventory.ContainsKey(item)) {
+            inventory.Add(item, 1);
+        }
+        inventory[item]++;
+        Debug.Log(item + "=>" + inventory[item]);
+    }
 }

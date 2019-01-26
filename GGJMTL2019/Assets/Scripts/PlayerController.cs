@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
+        gameManager = GameManager.Instance;
 
     }
 
@@ -35,7 +36,9 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.tag == "Desk1" && Input.GetButtonDown("Fire2"))
         {
+           
             Debug.Log("Tu as trouvé une clé!!");
+            gameManager.inventory.addItem(Inventory.ItemTypes.SCISSOR);
         }
     }
 }
