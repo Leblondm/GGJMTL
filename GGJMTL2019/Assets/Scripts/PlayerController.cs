@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
     public float runSpeed = 40f;
 
-    //private GameManager gameManager;
+    private GameManager gameManager;
 
     float horizontalMove = 0f;
     bool jump = false;
