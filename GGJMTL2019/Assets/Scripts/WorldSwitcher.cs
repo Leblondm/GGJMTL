@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WorldSwitcher : MonoBehaviour
 {
 
     public GameManager gameManager;
-    public GameObject otherWorldMask;
+    private GameObject otherWorldMask;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,14 +17,34 @@ public class WorldSwitcher : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetButtonDown("World switch"))
+        if(Input.GetButtonDown("Fire3"))
         {
-            StartCoroutine(goToOtherWorld());
+           StartCoroutine(goToOtherWorld());
         }
     }
 
-    
+
+    private void updateOtherWorldVisibility() {
+        foreach (GameObject gameObject in gameManager.currentSceneOtherWorld.GetRootGameObjects())
+        {
+            gameObject.SetActive(!gameManager.isNormalWorld);
+        }
+    }
+
     public IEnumerator goToOtherWorld() {
+        if(gameManager.isNormalWorld)
+        {
+            gameManager.isNormalWorld = false;
+            updateOtherWorldVisibility();
+            yield return new WaitForSeconds(gameManager.otherWorldTimeout);
+            gameManager.isNormalWorld = true;
+            updateOtherWorldVisibility();
+        }
+        yield return null;
+        
+    }
+
+ /*   public IEnumerator goToOtherWorld() {
         if(GameManager.Instance.isNormalWorld)
         {
             Debug.Log("normal world: " + GameManager.Instance.isNormalWorld);
@@ -34,5 +55,5 @@ public class WorldSwitcher : MonoBehaviour
             gameManager.isNormalWorld = true;
         }
         yield return null;
-    }
+    }*/
 }

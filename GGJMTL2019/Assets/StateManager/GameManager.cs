@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager
 {
@@ -17,9 +18,9 @@ public class GameManager
             }
             return GameManager.instance;
         }
-
-
     }
     public bool isNormalWorld = true;
     public float otherWorldTimeout = 3f;
+    public Scene currentSceneNormalWorld;
+    public Scene currentSceneOtherWorld;
 }

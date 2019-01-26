@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-using UnityEngine.SceneManagement;
+
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,13 +11,12 @@ public class PlayerController : MonoBehaviour
 
     private new Rigidbody2D rigidbody2D;
     private string darkWorldSceneName;
-
+    private GameManager gameManager;
     // Start is called before the first frame update
     void Start()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
-        darkWorldSceneName = SceneManager.GetActiveScene().name + "Dark";
-        SceneManager.LoadScene(darkWorldSceneName, LoadSceneMode.Additive);
+
     }
 
     // Update is called once per frame
@@ -35,21 +34,6 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             rigidbody2D.AddForce(new Vector2(0, verticalSpeed));
-        }
-
-        if (Input.GetButtonDown("Fire3"))
-        {
-            foreach (GameObject gameObject in SceneManager.GetSceneByName(darkWorldSceneName).GetRootGameObjects())
-            {
-                if (gameObject.activeSelf)
-                {
-                    gameObject.SetActive(false);
-                }
-                else
-                {
-                    gameObject.SetActive(true);
-                }
-            }
         }
     }
 

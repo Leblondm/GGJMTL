@@ -24,7 +24,6 @@ public class CameraController : MonoBehaviour
         smoothedPosition.x = Mathf.Min(smoothedPosition.x, offsetX );
 
         smoothedPosition.y = Mathf.Max(smoothedPosition.y, offsetY * -1);
-    //    smoothedPosition.y = Mathf.Min(smoothedPosition.y, offsetY);
         transform.position = smoothedPosition;
     }
    
