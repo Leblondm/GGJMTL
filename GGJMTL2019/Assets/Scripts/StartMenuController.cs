@@ -17,7 +17,6 @@ public class StartMenuController : MonoBehaviour
     {
         
     }
-
     
 
     // Update is called once per frame
@@ -65,14 +64,15 @@ public class StartMenuController : MonoBehaviour
     }
 
     private void gotoGameStart() {
-        SceneManager.UnloadSceneAsync(gameObject.scene);
+       
         SceneManager.LoadScene("BedScene", LoadSceneMode.Additive);
+        SceneManager.UnloadSceneAsync(gameObject.scene.name);
     }
 
     private void gotoCredits()
     {
-        SceneManager.UnloadSceneAsync(gameObject.scene);
         SceneManager.LoadScene("CreditsScene", LoadSceneMode.Additive);
+        SceneManager.UnloadSceneAsync(gameObject.scene.name);
     }
 
 }

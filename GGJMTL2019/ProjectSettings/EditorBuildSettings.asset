@@ -9,6 +9,18 @@ EditorBuildSettings:
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 1
+    path: Assets/Scenes/BootstrapScene.unity
+    guid: 14b2de3de2af8394e98c08c504292d35
+  - enabled: 1
+    path: Assets/Scenes/MusicScene.unity
+    guid: 0ce39eb5ba23f124fb84fcf55cedd642
+  - enabled: 1
+    path: Assets/Scenes/StartMenu.unity
+    guid: 8e8502e218df0fe46aaddbc9181c8eca
+  - enabled: 1
+    path: Assets/Scenes/CreditsScene.unity
+    guid: 673891ca5b6bef0449f8caade53a7c5f
+  - enabled: 1
     path: Assets/Scenes/BedScene.unity
     guid: ac2f759e0c0d4074291139c6ab1180ef
   - enabled: 1
@@ -20,13 +32,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainSceneDark.unity
     guid: 9f315f42a07bac64fb148bf6b1b935ca
-  - enabled: 1
-    path: Assets/Scenes/MusicScene.unity
-    guid: 0ce39eb5ba23f124fb84fcf55cedd642
-  - enabled: 1
-    path: Assets/Scenes/StartMenu.unity
-    guid: 8e8502e218df0fe46aaddbc9181c8eca
-  - enabled: 1
-    path: Assets/Scenes/CreditsScene.unity
-    guid: 673891ca5b6bef0449f8caade53a7c5f
   m_configObjects: {}
