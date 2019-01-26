@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
 
 public class WorldSwitcher : MonoBehaviour
 {
@@ -9,9 +10,14 @@ public class WorldSwitcher : MonoBehaviour
     public GameManager gameManager;
     private GameObject otherWorldMask;
     // Start is called before the first frame update
+    
     void Start()
     {
         gameManager = GameManager.Instance;
+        if(!gameManager.isNormalWorld)
+        {
+            StartCoroutine(goToOtherWorld());
+        }
     }
 
     // Update is called once per frame
@@ -24,18 +30,47 @@ public class WorldSwitcher : MonoBehaviour
     }
 
 
-    private void updateOtherWorldVisibility() {
+    private IEnumerator updateOtherWorldVisibility() {
+
+        while(!gameManager.currentSceneOtherWorld.isLoaded)
+        {
+            yield return new WaitForSeconds(0.05f);
+        }
+        Debug.Log(gameManager.currentSceneOtherWorld + "++>" + gameManager.currentSceneOtherWorld.name +  "++>" + gameManager.currentSceneOtherWorld.GetRootGameObjects().Length + "==>" + gameManager.currentSceneOtherWorld.isLoaded);
+
         foreach (GameObject gameObject in gameManager.currentSceneOtherWorld.GetRootGameObjects())
         {
             gameObject.SetActive(!gameManager.isNormalWorld);
         }
+
+        foreach (GameObject gameObject in gameManager.currentSceneNormalWorld.GetRootGameObjects())
+        {
+            if(isElementToHideOrShow(gameObject))
+            {
+                gameObject.SetActive(gameManager.isNormalWorld);
+            }
+            
+        }
+        yield return null;
+
     }
 
+    private bool isElementToHideOrShow(GameObject gameObject) {
+        foreach (Inventory.ItemTypes item in Enum.GetValues(typeof(Inventory.ItemTypes))) {
+            if (item.ToString() == gameObject.tag) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
     public IEnumerator goToOtherWorld() {
-        if(gameManager.isNormalWorld)
+        if(gameManager.isNormalWorld || gameManager.otherWorldSceneNameInitiator != gameObject.scene.name)
         {
             gameManager.isNormalWorld = false;
-            updateOtherWorldVisibility();
+            gameManager.otherWorldSceneNameInitiator = gameObject.scene.name;
+            StartCoroutine(updateOtherWorldVisibility());
             for(float time = gameManager.otherWorldTimeout; time >= 0; time --)
             {
                 gameManager.remainingTimeInOtherWorld = time;
@@ -43,7 +78,7 @@ public class WorldSwitcher : MonoBehaviour
             }
             
             gameManager.isNormalWorld = true;
-            updateOtherWorldVisibility();
+            StartCoroutine(updateOtherWorldVisibility());
         }
         yield return null;
         

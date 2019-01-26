@@ -22,7 +22,6 @@ public class GotoScene : MonoBehaviour
         {
             isSceneSwitching = true;
             SceneManager.UnloadSceneAsync(currentScene);
-            Debug.Log("OnTriggerEnter2D!!!!! with " + collision.gameObject);
             SceneManager.LoadScene(targetScene, LoadSceneMode.Additive);
         }
         

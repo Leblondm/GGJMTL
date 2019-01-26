@@ -24,5 +24,6 @@ public class GameManager
     public float remainingTimeInOtherWorld;
     public Scene currentSceneNormalWorld;
     public Scene currentSceneOtherWorld;
+    public string otherWorldSceneNameInitiator;
     public Inventory inventory = new Inventory();
 }

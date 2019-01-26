@@ -13,9 +13,7 @@ public class HUDController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(GameManager.Instance.otherWorldTimeout / ratio);
         darkWorldTimerIndicator = GameObject.Find("DarkWorldTimerIndicator");
-        Debug.Log(darkWorldTimerIndicator.transform.position.x);
         originalPosition = darkWorldTimerIndicator.transform.position.x + (GameManager.Instance.otherWorldTimeout / ratio);
         darkWorldTimerIndicator.transform.position = new Vector3(originalPosition, darkWorldTimerIndicator.transform.position.y);
     }
