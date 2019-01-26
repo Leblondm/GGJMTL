@@ -53,4 +53,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Desk1" && Input.GetButtonDown("Fire2"))
+        {
+            Debug.Log("Tu as trouvé une clé!!");
+        }
+    }
 }
