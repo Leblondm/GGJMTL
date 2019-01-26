@@ -44,16 +44,4 @@ public class WorldSwitcher : MonoBehaviour
         
     }
 
- /*   public IEnumerator goToOtherWorld() {
-        if(GameManager.Instance.isNormalWorld)
-        {
-            Debug.Log("normal world: " + GameManager.Instance.isNormalWorld);
-            gameManager.isNormalWorld = false;
-            GameObject otherWorldInst = Instantiate(otherWorldMask);
-            yield return new WaitForSeconds(gameManager.otherWorldTimeout);
-            Destroy(otherWorldInst);
-            gameManager.isNormalWorld = true;
-        }
-        yield return null;
-    }*/
 }

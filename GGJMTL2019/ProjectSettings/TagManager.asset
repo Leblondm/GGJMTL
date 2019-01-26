@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Desk1
   - background
+  - normal_world_audio
+  - dark_world_audio
   layers:
   - Default
   - TransparentFX
