@@ -23,12 +23,13 @@ public class AudioSwitcherScript : MonoBehaviour
         if (GameManager.Instance.isNormalWorld != previousWorldMode) {
             if (GameManager.Instance.isNormalWorld)
             {
+                normalWorldAudio.timeSamples = darkWorldAudio.timeSamples;
                 normalWorldAudio.volume = 1;
                 darkWorldAudio.volume = 0;
-            }
-            else {
+            } else {
+                darkWorldAudio.timeSamples = normalWorldAudio.timeSamples;
                 normalWorldAudio.volume = 0;
-                darkWorldAudio.volume = 1; 
+                darkWorldAudio.volume = 1;
             }
             previousWorldMode = GameManager.Instance.isNormalWorld;
 

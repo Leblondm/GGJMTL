@@ -20,7 +20,9 @@ public class GameManager
         }
     }
     public bool isNormalWorld = true;
-    public float otherWorldTimeout = 3f;
+    public float otherWorldTimeout = 10f;
+    public float remainingTimeInOtherWorld;
     public Scene currentSceneNormalWorld;
     public Scene currentSceneOtherWorld;
+    public Inventory inventory = new Inventory();
 }

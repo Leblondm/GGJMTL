@@ -11,7 +11,8 @@ public class CameraController : MonoBehaviour
     public float smoothSpeed = 0.125f;
     public Vector3 offset;
 
-    public float offsetX;
+    public float offsetXLeft;
+    public float offsetXRight;
     public float offsetY;
 
 
@@ -20,8 +21,8 @@ public class CameraController : MonoBehaviour
     {
         Vector3 desiredPosition = target.position + offset;
         Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
-        smoothedPosition.x = Mathf.Max(smoothedPosition.x, offsetX * -1);
-        smoothedPosition.x = Mathf.Min(smoothedPosition.x, offsetX);
+        smoothedPosition.x = Mathf.Max(smoothedPosition.x, offsetXLeft);
+        smoothedPosition.x = Mathf.Min(smoothedPosition.x, offsetXRight);
 
         smoothedPosition.y = Mathf.Max(smoothedPosition.y, offsetY * -1);
         transform.position = smoothedPosition;
