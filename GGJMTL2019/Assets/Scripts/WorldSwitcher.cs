@@ -36,7 +36,6 @@ public class WorldSwitcher : MonoBehaviour
         {
             yield return new WaitForSeconds(0.05f);
         }
-        Debug.Log(gameManager.currentSceneOtherWorld + "++>" + gameManager.currentSceneOtherWorld.name +  "++>" + gameManager.currentSceneOtherWorld.GetRootGameObjects().Length + "==>" + gameManager.currentSceneOtherWorld.isLoaded);
 
         foreach (GameObject gameObject in gameManager.currentSceneOtherWorld.GetRootGameObjects())
         {
