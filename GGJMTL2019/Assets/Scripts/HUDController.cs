@@ -15,9 +15,6 @@ public class HUDController : MonoBehaviour
     {
         darkWorldTimerBar = GameObject.Find("DarkWorldTimerBar");
         darkWorldTimerIndicator = GameObject.Find("DarkWorldTimerIndicator");
-        Debug.Log(darkWorldTimerIndicator.transform.position.x);
-        originalPosition = darkWorldTimerIndicator.transform.position.x + (GameManager.Instance.otherWorldTimeout / ratio);
-        darkWorldTimerIndicator.transform.position = new Vector3(originalPosition, darkWorldTimerIndicator.transform.position.y);
     }
 
     void FixedUpdate()
