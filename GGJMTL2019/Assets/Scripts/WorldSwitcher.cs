@@ -36,7 +36,12 @@ public class WorldSwitcher : MonoBehaviour
         {
             gameManager.isNormalWorld = false;
             updateOtherWorldVisibility();
-            yield return new WaitForSeconds(gameManager.otherWorldTimeout);
+            for(float time = gameManager.otherWorldTimeout; time >= 0; time --)
+            {
+                gameManager.remainingTimeInOtherWorld = time;
+                yield return new WaitForSeconds(1f);
+            }
+            
             gameManager.isNormalWorld = true;
             updateOtherWorldVisibility();
         }
