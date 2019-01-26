@@ -71,7 +71,8 @@ public class WorldSwitcher : MonoBehaviour
             gameManager.isNormalWorld = false;
             gameManager.otherWorldSceneNameInitiator = gameObject.scene.name;
             StartCoroutine(updateOtherWorldVisibility());
-            for(float time = gameManager.otherWorldTimeout; time >= 0; time --)
+            float remainingTime = gameManager.remainingTimeInOtherWorld > 0 ? gameManager.remainingTimeInOtherWorld: gameManager.otherWorldTimeout;
+            for (float time = remainingTime; time >= 0; time --)
             {
                 gameManager.remainingTimeInOtherWorld = time;
                 yield return new WaitForSeconds(1f);
