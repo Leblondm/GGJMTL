@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 8590254469288928084}
   m_Layer: 8
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -146,7 +146,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 0.2595904
+  m_Mass: 0.46086195
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 3
@@ -168,7 +168,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.08}
+  m_Offset: {x: 0, y: 0.12693962}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -179,7 +179,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.45101845, y: 0.43948248}
+  m_Size: {x: 0.45101845, y: 0.5333618}
   m_EdgeRadius: 0
 --- !u!58 &96548423793465730
 CircleCollider2D:
@@ -194,9 +194,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.18053381}
+  m_Offset: {x: 0, y: -0.24423763}
   serializedVersion: 2
-  m_Radius: 0.19163644
+  m_Radius: 0.25534022
 --- !u!95 &8590254469288928084
 Animator:
   serializedVersion: 3
@@ -207,7 +207,7 @@ Animator:
   m_GameObject: {fileID: 96548423793465734}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 227e0c48c7ba14e12a4773f899153de0, type: 2}
+  m_Controller: {fileID: 9100000, guid: 8e60b276185d94f7eb93fb25a11ed2f5, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

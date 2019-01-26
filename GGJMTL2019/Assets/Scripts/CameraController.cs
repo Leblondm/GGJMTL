@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class CameraController : MonoBehaviour
 {
-    public Transform target;
+    private Transform target;
 
     public float smoothSpeed = 0.125f;
     public Vector3 offset;
@@ -14,6 +14,11 @@ public class CameraController : MonoBehaviour
     public float offsetXLeft;
     public float offsetXRight;
     public float offsetY;
+
+    private void Start()
+    {
+        target = GameObject.FindGameObjectWithTag("Player").transform;
+    }
 
 
     // Update is called once per frame
