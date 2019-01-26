@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Desk1
+  - background
   layers:
   - Default
   - TransparentFX

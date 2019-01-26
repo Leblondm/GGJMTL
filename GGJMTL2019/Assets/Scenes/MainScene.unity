@@ -347,7 +347,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd52d76d6436e4144a21ff021654a3cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 863420779}
+  target: {fileID: 863420782}
+  smoothSpeed: 0.99
+  offset: {x: 0, y: 0, z: 0}
+  offsetX: 5.9
+  offsetY: -0.9
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -374,7 +378,7 @@ Camera:
   far clip plane: 100
   field of view: 54.4
   orthographic: 1
-  orthographic size: 3
+  orthographic size: 6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -764,7 +768,7 @@ GameObject:
   - component: {fileID: 1321487367}
   m_Layer: 0
   m_Name: Background
-  m_TagString: Untagged
+  m_TagString: background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

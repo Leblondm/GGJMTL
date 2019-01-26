@@ -2,27 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using UnityEngine.SceneManagement;
+
 public class CameraController : MonoBehaviour
 {
-    public GameObject player;       //Public variable to store a reference to the player game object
+    public Transform target;
 
-    private Vector3 offset;
+    public float smoothSpeed = 0.125f;
+    public Vector3 offset;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        if (player != null)
-        {
-            offset = transform.position - player.transform.position;
-        }
-    }
+    public float offsetX;
+    public float offsetY;
+
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if (player != null)
-        {
-            transform.position = player.transform.position + offset;
-        }
+        Vector3 desiredPosition = target.position + offset;
+        Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
+        smoothedPosition.x = Mathf.Max(smoothedPosition.x, offsetX * -1);
+        smoothedPosition.x = Mathf.Min(smoothedPosition.x, offsetX );
+
+        smoothedPosition.y = Mathf.Max(smoothedPosition.y, offsetY * -1);
+    //    smoothedPosition.y = Mathf.Min(smoothedPosition.y, offsetY);
+        transform.position = smoothedPosition;
     }
+   
 }
