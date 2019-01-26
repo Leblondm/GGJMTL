@@ -6,14 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
-    public string sceneName;
     private GameManager gameManager;
     // Start is called before the first frame update
     
     void Start()
     {
         gameManager = GameManager.Instance;
-        gameManager.currentSceneNormalWorld = SceneManager.GetSceneByName(sceneName);
+        gameManager.currentSceneNormalWorld = gameObject.scene;
         string darkWorldSceneName = gameManager.currentSceneNormalWorld.name + "Dark";
         SceneManager.LoadScene(darkWorldSceneName, LoadSceneMode.Additive);
         GameManager.Instance.currentSceneOtherWorld = SceneManager.GetSceneByName(darkWorldSceneName);
@@ -23,5 +22,6 @@ public class SceneController : MonoBehaviour
     private void OnDestroy()
     {
         SceneManager.UnloadSceneAsync(GameManager.Instance.currentSceneOtherWorld);
+       // SceneManager.LoadScene("MainScene", LoadSceneMode.Additive);
     }
 }
