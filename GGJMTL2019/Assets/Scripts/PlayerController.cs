@@ -6,30 +6,49 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed;
-    public float verticalSpeed;
+    public CharacterController2D controller;
+    public Animator animator;
+    public float runSpeed = 40f;
 
-    private new Rigidbody2D rigidbody2D;
-    private string darkWorldSceneName;
     private GameManager gameManager;
+
+    float horizontalMove = 0f;
+    bool jump = false;
+    bool canJump = false;
+    bool crouch = false;
+
     // Start is called before the first frame update
     void Start()
     {
-        rigidbody2D = GetComponent<Rigidbody2D>();
-        gameManager = GameManager.Instance;
+        controller.OnLandEvent.AddListener(() => {
+            Debug.Log("LANDED !");
+            canJump = true;
+            animator.SetBool("IsJumping", false);
+        });
+    }
 
+    private void Update()
+    {
+        horizontalMove = Input.GetAxis("Horizontal") * runSpeed;
+
+        animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
+
+        if (canJump && Input.GetButtonDown("Jump"))
+        {
+            //Debug.Log("Jump");
+            jump = true;
+            animator.SetBool("IsJumping", true);
+            canJump = false;
+        }
+
+        crouch = Input.GetAxis("Vertical") < 0;
     }
 
     void FixedUpdate()
     {
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        Vector2 movement = new Vector2(moveHorizontal, 0);
-        rigidbody2D.AddForce(movement * speed);
-
-        if (Input.GetButtonDown("Fire1"))
-        {
-            rigidbody2D.AddForce(new Vector2(0, verticalSpeed));
-        }
+        // Move Character
+        controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
+        jump = false;
     }
 
     void OnTriggerStay2D(Collider2D other)
