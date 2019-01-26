@@ -6,9 +6,9 @@ TagManager:
   tags:
   - Desk1
   - background
-  - DarkWorldTimerBar
   - normal_world_audio
   - dark_world_audio
+  - DarkWorldTimer
   layers:
   - Default
   - TransparentFX
