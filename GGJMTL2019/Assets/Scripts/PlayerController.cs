@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = GameManager.Instance;
         controller.OnLandEvent.AddListener(() => {
             Debug.Log("LANDED !");
             canJump = true;
