@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
         {
            
             Debug.Log("Tu as trouvé une clé!!");
-            gameManager.inventory.addItem(Inventory.ItemTypes.SCISSOR);
+            gameManager.inventory.addItem(Inventory.ItemTypes.Desk1);
         }
     }
 }

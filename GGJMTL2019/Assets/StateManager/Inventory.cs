@@ -6,7 +6,7 @@ public class Inventory
 {
 
     public enum ItemTypes {
-        SCISSOR
+        Desk1
     }
     private Dictionary<ItemTypes, int> inventory = new Dictionary<ItemTypes, int>();
 
@@ -24,6 +24,5 @@ public class Inventory
             inventory.Add(item, 1);
         }
         inventory[item]++;
-        Debug.Log(item + "=>" + inventory[item]);
     }
 }
