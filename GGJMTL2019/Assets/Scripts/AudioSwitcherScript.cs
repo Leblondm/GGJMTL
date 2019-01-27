@@ -13,7 +13,7 @@ public class AudioSwitcherScript : MonoBehaviour
         darkWorldAudio = GameObject.FindGameObjectWithTag("dark_world_audio").GetComponent<AudioSource>();
     }
 
-    private bool previousWorldMode = GameManager.Instance.isNormalWorld;
+    private bool? previousWorldMode = null;
 
     // Update is called once per frame
     void FixedUpdate()

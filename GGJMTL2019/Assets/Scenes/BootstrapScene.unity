@@ -439,9 +439,9 @@ MonoBehaviour:
   sounds:
   - name: footstep
     clip: {fileID: 8300000, guid: d0c043489d420d94791888d547e9479a, type: 3}
-    volume: 1
+    volume: 0.3
     pitch: 1
-    loop: 1
+    loop: 0
     source: {fileID: 0}
   - name: door_unlock
     clip: {fileID: 8300000, guid: 2e64c465729005440b0df01b2498a4ba, type: 3}

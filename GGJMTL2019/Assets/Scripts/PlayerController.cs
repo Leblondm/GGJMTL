@@ -51,15 +51,6 @@ public class PlayerController : MonoBehaviour
     {
         if (cantMove) return;
 
-        /* if (horizontalMove != 0)
-        {
-            FindObjectOfType<AudioManager>().Play("footstep");
-        }
-        else
-        {
-            FindObjectOfType<AudioManager>().Stop("footstep");
-        } */
-
         // Move Character
         controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
         jump = false;

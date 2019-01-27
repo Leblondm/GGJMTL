@@ -60,6 +60,11 @@ public class CharacterController2D: MonoBehaviour
         }
     }
 
+    public void Land()
+    {
+        Debug.Log("Test");
+    }
+
 
     public void Move(float move, bool crouch, bool jump)
     {
@@ -141,5 +146,13 @@ public class CharacterController2D: MonoBehaviour
 
         // Multiply the player's x local scale by -1.
         transform.Rotate(0f, 180, 0f);
+    }
+
+    public void PlayFootstep()
+    {
+        if (m_Grounded)
+        {
+            FindObjectOfType<AudioManager>().Play("footstep");
+        }
     }
 }
