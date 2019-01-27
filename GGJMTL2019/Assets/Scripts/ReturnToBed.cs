@@ -16,9 +16,6 @@ public class ReturnToBed : MonoBehaviour
         yield return new WaitForSeconds(5);
 
         Scene currentScene = gameObject.scene;
-        SceneManager.UnloadSceneAsync(GameManager.Instance.currentSceneNormalWorld);
-        SceneManager.UnloadSceneAsync(currentScene);
-        SceneManager.LoadScene("BedScene", LoadSceneMode.Additive);
-
+        GameManager.Instance.sceneTransisionEvent = new GameManager.SceneTransisionEvent(gameObject.scene.name, "BedScene");
     }
 }
