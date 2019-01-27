@@ -12,6 +12,8 @@ TagManager:
   - Enemy
   - BedRoomKey
   - TextWriter
+  - Knight
+  - RunAwayRoomKey
   layers:
   - Default
   - TransparentFX

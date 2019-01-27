@@ -38,6 +38,8 @@ public class GameManager
     public SceneTransisionEvent sceneTransisionEvent = null;
     public bool isBedroomLocked = true;
     public bool inFrontOfBedroomDoor;
+    public bool isRunAwayDoorLocked = true;
+    public bool inFrontOfRunAwayDoor;
 
     public string bedroomTextMessage = "Find a way out of your room!";
 }

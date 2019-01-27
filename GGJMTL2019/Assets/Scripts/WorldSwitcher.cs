@@ -49,6 +49,10 @@ public class WorldSwitcher : MonoBehaviour
             {
                 gameObject.SetActive(gameManager.isNormalWorld);
             }
+            if (gameObject.tag == "Knight" || gameObject.tag == "RunAwayRoomKey")
+            {
+                gameObject.SetActive(gameManager.isNormalWorld);
+            }
             
         }
         yield return null;
@@ -72,15 +76,24 @@ public class WorldSwitcher : MonoBehaviour
             gameManager.otherWorldSceneNameInitiator = gameObject.scene.name;
             StartCoroutine(updateOtherWorldVisibility());
             float remainingTime = gameManager.remainingTimeInOtherWorld > 0 ? gameManager.remainingTimeInOtherWorld: gameManager.otherWorldTimeout;
-            for (float time = remainingTime; time >= 0; time --)
+            for (float time = remainingTime; time >= 0; time--)
             {
+                if (gameManager.isNormalWorld) break;
                 gameManager.remainingTimeInOtherWorld = time;
                 yield return new WaitForSeconds(1f);
             }
+            if (gameManager.remainingTimeInOtherWorld <= 0)
+            {
+                gameManager.isNormalWorld = true;
+                StartCoroutine(updateOtherWorldVisibility());
+                GameManager.Instance.sceneTransisionEvent = new GameManager.SceneTransisionEvent(gameObject.scene.name, "GetAsleepInfo");
+            }
+        }
+        if (!gameManager.isNormalWorld || gameManager.otherWorldSceneNameInitiator != gameObject.scene.name)
+        {
             gameManager.isNormalWorld = true;
+            gameManager.otherWorldSceneNameInitiator = gameObject.scene.name;
             StartCoroutine(updateOtherWorldVisibility());
-            GameManager.Instance.sceneTransisionEvent = new GameManager.SceneTransisionEvent(gameObject.scene.name, "GetAsleepInfo");
-            
         }
         yield return null;
         

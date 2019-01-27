@@ -66,10 +66,16 @@ public class PlayerController : MonoBehaviour
             FindObjectOfType<AudioManager>().Play("jingle_item_5");
         }
 
-        if (other.gameObject.tag == "BedRoomKey" && Input.GetButtonDown("User action"))
+        if ((other.gameObject.tag == "BedRoomKey") && Input.GetButtonDown("User action"))
         {
             gameManager.bedroomTextMessage = "Maybe you can use this key...";
             gameManager.inventory.addItem(Inventory.ItemTypes.BedRoomKey);
+            FindObjectOfType<AudioManager>().Play("jingle_item_5");
+        }
+
+        if ((other.gameObject.tag == "RunAwayRoomKey") && Input.GetButtonDown("User action"))
+        {
+            gameManager.inventory.addItem(Inventory.ItemTypes.RunAwayRoomKey);
             FindObjectOfType<AudioManager>().Play("jingle_item_5");
         }
     }
