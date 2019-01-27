@@ -7,11 +7,10 @@ public class GotoScene : MonoBehaviour
 {
 
     public string targetScene;
-    private Scene currentScene;
+
     // Start is called before the first frame update
     void Start()
     {
-        currentScene = gameObject.scene;
     }
 
     private bool isSceneSwitching = false;
@@ -21,8 +20,7 @@ public class GotoScene : MonoBehaviour
         if(!isSceneSwitching)
         {
             isSceneSwitching = true;
-            SceneManager.UnloadSceneAsync(currentScene);
-            SceneManager.LoadScene(targetScene, LoadSceneMode.Additive);
+            GameManager.Instance.sceneTransisionEvent = new GameManager.SceneTransisionEvent(gameObject.scene.name, targetScene);
         }
         
     }

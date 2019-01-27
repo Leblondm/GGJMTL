@@ -12,8 +12,7 @@ public class CreditsSceneController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            SceneManager.UnloadSceneAsync(gameObject.scene);
-            SceneManager.LoadScene("StartMenu", LoadSceneMode.Additive);
+            GameManager.Instance.sceneTransisionEvent = new GameManager.SceneTransisionEvent(gameObject.scene.name, "StartMenu");
         }
     }
 }

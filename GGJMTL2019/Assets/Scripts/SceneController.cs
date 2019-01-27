@@ -17,11 +17,18 @@ public class SceneController : MonoBehaviour
         SceneManager.LoadScene(darkWorldSceneName, LoadSceneMode.Additive);
         GameManager.Instance.currentSceneOtherWorld = SceneManager.GetSceneByName(darkWorldSceneName);
     }
+    
+
+    private void FixedUpdate()
+    {
+        if (gameManager.currentSceneNormalWorld.name == "BedScene") {
+            GameObject.FindGameObjectWithTag("TextWriter").GetComponent<UnityEngine.UI.Text>().text = GameManager.Instance.bedroomTextMessage;
+        }
+    }
 
 
     private void OnDestroy()
     {
         SceneManager.UnloadSceneAsync(GameManager.Instance.currentSceneOtherWorld);
-       // SceneManager.LoadScene("MainScene", LoadSceneMode.Additive);
     }
 }

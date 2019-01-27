@@ -10,6 +10,8 @@ TagManager:
   - dark_world_audio
   - DarkWorldTimer
   - Enemy
+  - BedRoomKey
+  - TextWriter
   layers:
   - Default
   - TransparentFX
