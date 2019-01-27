@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
 {
     public CharacterController2D controller;
     public Animator animator;
-    public float runSpeed = 40f;
+    public float runSpeed = 30f;
 
     private GameManager gameManager;
 
