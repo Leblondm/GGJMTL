@@ -37,19 +37,11 @@ public class LevelChangerController : MonoBehaviour
 
     public void OnFadeComplete()
     {
-        StartCoroutine(dirtyFix());
-    }
-
-    public IEnumerator dirtyFix() {
-
         SceneManager.UnloadSceneAsync(levelToUnload);
-        yield return new WaitForSeconds(2);
         SceneManager.LoadScene(levelToLoad, LoadSceneMode.Additive);
 
         FadeIntoLevel();
         levelChangeInProgess = false;
-        yield return null;
-
     }
 
 }
