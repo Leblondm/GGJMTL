@@ -2,13 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-using UnityEngine.SceneManagement;
-
 public class AudioSwitcherScript : MonoBehaviour
 {
-    private Scene musicScene;
     private AudioSource normalWorldAudio;
     private AudioSource darkWorldAudio;
+
     void Start()
     {
         normalWorldAudio = GameObject.FindGameObjectWithTag("normal_world_audio").GetComponent<AudioSource>();
@@ -23,13 +21,11 @@ public class AudioSwitcherScript : MonoBehaviour
         if (GameManager.Instance.isNormalWorld != previousWorldMode) {
             if (GameManager.Instance.isNormalWorld)
             {
-                normalWorldAudio.timeSamples = darkWorldAudio.timeSamples;
-                normalWorldAudio.volume = 1;
+                normalWorldAudio.volume = 0.50f;
                 darkWorldAudio.volume = 0;
             } else {
-                darkWorldAudio.timeSamples = normalWorldAudio.timeSamples;
                 normalWorldAudio.volume = 0;
-                darkWorldAudio.volume = 1;
+                darkWorldAudio.volume = 0.50f;
             }
             previousWorldMode = GameManager.Instance.isNormalWorld;
 

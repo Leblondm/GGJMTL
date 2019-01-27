@@ -28,8 +28,14 @@ public class BedRoomUnlocker : MonoBehaviour
     {
         if(Input.GetButtonDown("User action") && !GameManager.Instance.isNormalWorld && GameManager.Instance.inFrontOfBedroomDoor && GameManager.Instance.inventory.hasItem(Inventory.ItemTypes.BedRoomKey) )
         {
+            FindObjectOfType<AudioManager>().Play("jingle_item_7");
             GameManager.Instance.isBedroomLocked = false;
             StartCoroutine(congratulations());
+        }
+
+        if (Input.GetButtonDown("User action") && GameManager.Instance.inFrontOfBedroomDoor && (GameManager.Instance.isNormalWorld || !GameManager.Instance.inventory.hasItem(Inventory.ItemTypes.BedRoomKey)))
+        {
+            FindObjectOfType<AudioManager>().Play("door_locked");
         }
     }
 
@@ -44,6 +50,9 @@ public class BedRoomUnlocker : MonoBehaviour
         yield return new WaitForSeconds(2);
         updateDoorState();
         GameManager.Instance.bedroomTextMessage = "";
+        FindObjectOfType<AudioManager>().Play("door_unlock");
+        openDoor.SetActive(!GameManager.Instance.isBedroomLocked);
+        lockedDoor.SetActive(GameManager.Instance.isBedroomLocked);
         yield return null;
     }
 }

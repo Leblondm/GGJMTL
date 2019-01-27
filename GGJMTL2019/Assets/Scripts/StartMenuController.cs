@@ -85,6 +85,7 @@ public class StartMenuController : MonoBehaviour
 
     private void GotoGameStart() {
         GameManager.Instance.sceneTransisionEvent = new GameManager.SceneTransisionEvent(gameObject.scene.name, "BedScene");
+        SceneManager.UnloadSceneAsync("MusicScene");
     }
 
     private void GotoCredits()

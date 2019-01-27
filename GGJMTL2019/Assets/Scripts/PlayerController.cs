@@ -50,6 +50,16 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         if (cantMove) return;
+
+        /* if (horizontalMove != 0)
+        {
+            FindObjectOfType<AudioManager>().Play("footstep");
+        }
+        else
+        {
+            FindObjectOfType<AudioManager>().Stop("footstep");
+        } */
+
         // Move Character
         controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
         jump = false;
@@ -59,14 +69,16 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.tag == "Desk1" && Input.GetButtonDown("User action"))
         {
-            Debug.Log("Tu as trouvé une clé!!");
+            // Debug.Log("Tu as trouvé une clé!!");
             gameManager.inventory.addItem(Inventory.ItemTypes.Desk1);
+            FindObjectOfType<AudioManager>().Play("jingle_item_5");
         }
 
         if (other.gameObject.tag == "BedRoomKey" && Input.GetButtonDown("User action"))
         {
             gameManager.bedroomTextMessage = "Maybe you can use this key...";
             gameManager.inventory.addItem(Inventory.ItemTypes.BedRoomKey);
+            FindObjectOfType<AudioManager>().Play("jingle_item_5");
         }
     }
 
