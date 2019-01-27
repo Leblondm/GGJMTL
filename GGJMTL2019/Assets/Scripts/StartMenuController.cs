@@ -18,20 +18,8 @@ public class StartMenuController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(menuControlWithThrottle());   
     }
 
-    IEnumerator menuControlWithThrottle() {
-        while(true)
-        {
-
-            Debug.Log(Input.GetAxis("Vertical"));
-           
-            yield return new WaitForSeconds(1f);
-        }
-       
-
-    }
     // Update is called once per frame
     void Update()
     {
