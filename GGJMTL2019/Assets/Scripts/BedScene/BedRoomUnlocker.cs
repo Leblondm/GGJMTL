@@ -20,6 +20,7 @@ public class BedRoomUnlocker : MonoBehaviour
                 lockedDoor = currentComponent.gameObject;
             }
         }
+        updateDoorState();
     }
 
     // Update is called once per frame
@@ -30,16 +31,19 @@ public class BedRoomUnlocker : MonoBehaviour
             GameManager.Instance.isBedroomLocked = false;
             StartCoroutine(congratulations());
         }
+    }
 
 
+    private void updateDoorState() {
+        openDoor.SetActive(!GameManager.Instance.isBedroomLocked);
+        lockedDoor.SetActive(GameManager.Instance.isBedroomLocked);
     }
 
     private IEnumerator congratulations() {
         GameManager.Instance.bedroomTextMessage = "Yeay! Go and explore now :)";
         yield return new WaitForSeconds(2);
+        updateDoorState();
         GameManager.Instance.bedroomTextMessage = "";
-        openDoor.SetActive(!GameManager.Instance.isBedroomLocked);
-        lockedDoor.SetActive(GameManager.Instance.isBedroomLocked);
         yield return null;
     }
 }
