@@ -7,6 +7,9 @@ using System;
 public class StartMenuController : MonoBehaviour
 {
     private int index = 0;
+    private bool goingUp;
+    private bool goingDown;
+    private float previousVerticalAxisValue;
     private enum START_MENU {
           PLAY = 0,
           CREDITS = 1,
@@ -15,52 +18,81 @@ public class StartMenuController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartCoroutine(menuControlWithThrottle());   
     }
-    
 
+    IEnumerator menuControlWithThrottle() {
+        while(true)
+        {
+
+            Debug.Log(Input.GetAxis("Vertical"));
+           
+            yield return new WaitForSeconds(1f);
+        }
+       
+
+    }
     // Update is called once per frame
     void Update()
     {
-        if(!gameObject.scene.isLoaded)
+        goingUp = false;
+        goingDown = false;
+        if (Input.GetAxis("Vertical") == 0 && previousVerticalAxisValue != 0)
         {
-            return;
-        }
-        if (Input.GetKeyDown(KeyCode.DownArrow)) {
-            index++;
-            index = index > Enum.GetNames(typeof(START_MENU)).Length - 1? 0: index;
-        } else if (Input.GetKeyDown(KeyCode.UpArrow)) {
-            index--;
-            index = index < 0 ? Enum.GetNames(typeof(START_MENU)).Length - 1 : index;
-        }
-
-        foreach(START_MENU element in Enum.GetValues(typeof(START_MENU)))
-        {
-            GameObject.Find(element.ToString()).GetComponent<Renderer>().enabled = false;
-        }
-
-        START_MENU currentElement = (START_MENU)index;
-        GameObject.Find(currentElement.ToString()).GetComponent<Renderer>().enabled = true;
-
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            switch (currentElement)
+            if (previousVerticalAxisValue > 0f)
             {
-                case START_MENU.PLAY:
-                    GotoGameStart();
-                    break;
-                case START_MENU.CREDITS:
-                    GotoCredits();
-                    break;
-                case START_MENU.QUIT:
-                    Application.Quit();
-                    break;
-                default:
-                    break;
-
+                goingUp = true;
+            }
+            else if (previousVerticalAxisValue < 0)
+            {
+                goingDown = true;
             }
         }
+        previousVerticalAxisValue = Input.GetAxis("Vertical");
 
+         if (!gameObject.scene.isLoaded)
+            {
+                return;
+            }
+            if (goingDown)
+            {
+                index++;
+                index = index > Enum.GetNames(typeof(START_MENU)).Length - 1 ? 0 : index;
+            }
+            else if (goingUp)
+            {
+                index--;
+                index = index < 0 ? Enum.GetNames(typeof(START_MENU)).Length - 1 : index;
+            }
+
+            foreach (START_MENU element in Enum.GetValues(typeof(START_MENU)))
+            {
+                GameObject.Find(element.ToString()).GetComponent<Renderer>().enabled = false;
+            }
+
+            START_MENU currentElement = (START_MENU)index;
+            GameObject.Find(currentElement.ToString()).GetComponent<Renderer>().enabled = true;
+
+            if (Input.GetButtonDown("Submit"))
+            {
+                switch (currentElement)
+                {
+                    case START_MENU.PLAY:
+                        GotoGameStart();
+                        break;
+                    case START_MENU.CREDITS:
+                        GotoCredits();
+                        break;
+                    case START_MENU.QUIT:
+                        Application.Quit();
+                        break;
+                    default:
+                        break;
+
+                }
+            }
+            goingUp = false;
+            goingDown = false;
     }
 
     private void GotoGameStart() {

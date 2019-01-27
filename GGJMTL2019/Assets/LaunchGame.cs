@@ -15,6 +15,8 @@ public class LaunchGame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetButtonDown("Cancel")) {
+            Debug.Log("have to redirect to start menu");
+        }
     }
 }
