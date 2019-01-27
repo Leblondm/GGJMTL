@@ -2954,7 +2954,7 @@ MonoBehaviour:
   smoothSpeed: 0.99
   offset: {x: 0, y: 0, z: 0}
   offsetXLeft: -5.87
-  offsetXRight: 30
+  offsetXRight: 16
   offsetY: -0.9
 --- !u!81 &1725255217
 AudioListener:

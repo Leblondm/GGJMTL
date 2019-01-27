@@ -3633,9 +3633,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smoothSpeed: 0.99
   offset: {x: 0, y: 0, z: 0}
-  offsetXLeft: -1
-  offsetXRight: 3.9
-  offsetY: 1.2
+  offsetXLeft: 1.68
+  offsetXRight: 1
+  offsetY: 1
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
