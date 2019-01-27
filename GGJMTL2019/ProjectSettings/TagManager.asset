@@ -9,6 +9,7 @@ TagManager:
   - normal_world_audio
   - dark_world_audio
   - DarkWorldTimer
+  - Enemy
   layers:
   - Default
   - TransparentFX
