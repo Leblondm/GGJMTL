@@ -17,7 +17,7 @@ public class GotoScene : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!isSceneSwitching && GameManager.Instance.sceneTransisionEvent == null)
+        if (!isSceneSwitching && GameManager.Instance.sceneTransisionEvent == null && collision.gameObject.tag == "Player")
         {
             Debug.Log("YOLO " + gameObject.scene.name);
             isSceneSwitching = true;
