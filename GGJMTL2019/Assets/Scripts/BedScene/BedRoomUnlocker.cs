@@ -25,7 +25,7 @@ public class BedRoomUnlocker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetButtonDown("Fire2") && !GameManager.Instance.isNormalWorld && GameManager.Instance.inFrontOfBedroomDoor && GameManager.Instance.inventory.hasItem(Inventory.ItemTypes.BedRoomKey) )
+        if(Input.GetButtonDown("User action") && !GameManager.Instance.isNormalWorld && GameManager.Instance.inFrontOfBedroomDoor && GameManager.Instance.inventory.hasItem(Inventory.ItemTypes.BedRoomKey) )
         {
             GameManager.Instance.isBedroomLocked = false;
             StartCoroutine(congratulations());
