@@ -19,6 +19,14 @@ public class SceneController : MonoBehaviour
     }
 
 
+    private void FixedUpdate()
+    {
+        if (gameManager.currentSceneNormalWorld.name == "BedScene") {
+            GameObject.FindGameObjectWithTag("TextWriter").GetComponent<UnityEngine.UI.Text>().text = GameManager.Instance.bedroomTextMessage;
+        }
+    }
+
+
     private void OnDestroy()
     {
         SceneManager.UnloadSceneAsync(GameManager.Instance.currentSceneOtherWorld);

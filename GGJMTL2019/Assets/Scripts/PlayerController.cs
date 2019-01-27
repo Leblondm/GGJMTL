@@ -60,5 +60,11 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Tu as trouvé une clé!!");
             gameManager.inventory.addItem(Inventory.ItemTypes.Desk1);
         }
+
+        if (other.gameObject.tag == "BedRoomKey" && Input.GetButtonDown("Fire2"))
+        {
+            gameManager.bedroomTextMessage = "Maybe you can use this key...";
+            gameManager.inventory.addItem(Inventory.ItemTypes.BedRoomKey);
+        }
     }
 }

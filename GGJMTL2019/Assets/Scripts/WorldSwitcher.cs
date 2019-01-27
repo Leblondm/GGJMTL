@@ -14,7 +14,8 @@ public class WorldSwitcher : MonoBehaviour
     void Start()
     {
         gameManager = GameManager.Instance;
-        if(!gameManager.isNormalWorld)
+        StartCoroutine(updateOtherWorldVisibility());
+        if (!gameManager.isNormalWorld)
         {
             StartCoroutine(goToOtherWorld());
         }

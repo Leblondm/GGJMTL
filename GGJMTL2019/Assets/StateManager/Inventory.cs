@@ -6,7 +6,8 @@ public class Inventory
 {
 
     public enum ItemTypes {
-        Desk1
+        Desk1,
+        BedRoomKey
     }
     private Dictionary<ItemTypes, int> inventory = new Dictionary<ItemTypes, int>();
 

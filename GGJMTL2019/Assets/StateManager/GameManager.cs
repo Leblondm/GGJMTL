@@ -14,7 +14,6 @@ public class GameManager
             if (GameManager.instance == null)
             {
                 GameManager.instance = new GameManager();
-              //  DontDestroyOnLoad(GameManager.instance);
             }
             return GameManager.instance;
         }
@@ -26,4 +25,8 @@ public class GameManager
     public Scene currentSceneOtherWorld;
     public string otherWorldSceneNameInitiator;
     public Inventory inventory = new Inventory();
+    public bool isBedroomLocked = true;
+    public bool inFrontOfBedroomDoor;
+
+    public string bedroomTextMessage = "Find a way out of your room!";
 }
