@@ -34,10 +34,9 @@ public class BedRoomUnlocker : MonoBehaviour
 
     }
 
-
     private IEnumerator congratulations() {
         GameManager.Instance.bedroomTextMessage = "Yeay! Go and explore now :)";
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(2);
         GameManager.Instance.bedroomTextMessage = "";
         openDoor.SetActive(!GameManager.Instance.isBedroomLocked);
         lockedDoor.SetActive(GameManager.Instance.isBedroomLocked);
