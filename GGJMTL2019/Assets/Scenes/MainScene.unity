@@ -416,7 +416,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd52d76d6436e4144a21ff021654a3cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 726548357}
   smoothSpeed: 0.99
   offset: {x: 0, y: 0, z: 0}
   offsetXLeft: -5.87
@@ -727,12 +726,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca6fc2a98265941cbace577eed4b66fd, type: 3}
---- !u!4 &726548357 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 96548423793465731, guid: ca6fc2a98265941cbace577eed4b66fd,
-    type: 3}
-  m_PrefabInstance: {fileID: 726548356}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &777698985
 GameObject:
   m_ObjectHideFlags: 0

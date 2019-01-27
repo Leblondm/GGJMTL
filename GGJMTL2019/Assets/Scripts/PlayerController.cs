@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     bool jump = false;
     bool canJump = false;
     bool crouch = false;
+    bool cantMove = false;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +31,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if(cantMove == true) return;
+
         horizontalMove = Input.GetAxis("Horizontal") * runSpeed;
 
         animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
@@ -47,6 +50,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (cantMove) return;
         // Move Character
         controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
         jump = false;
@@ -56,7 +60,6 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.tag == "Desk1" && Input.GetButtonDown("Fire2"))
         {
-           
             Debug.Log("Tu as trouvé une clé!!");
             gameManager.inventory.addItem(Inventory.ItemTypes.Desk1);
         }
@@ -66,5 +69,11 @@ public class PlayerController : MonoBehaviour
             gameManager.bedroomTextMessage = "Maybe you can use this key...";
             gameManager.inventory.addItem(Inventory.ItemTypes.BedRoomKey);
         }
+    }
+
+    public void kill()
+    {
+        cantMove = true;
+        animator.SetTrigger("Killed");
     }
 }

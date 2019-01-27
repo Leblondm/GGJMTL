@@ -47,10 +47,10 @@ public class StartMenuController : MonoBehaviour
             switch (currentElement)
             {
                 case START_MENU.PLAY:
-                    gotoGameStart();
+                    GotoGameStart();
                     break;
                 case START_MENU.CREDITS:
-                    gotoCredits();
+                    GotoCredits();
                     break;
                 case START_MENU.QUIT:
                     Application.Quit();
@@ -63,16 +63,13 @@ public class StartMenuController : MonoBehaviour
 
     }
 
-    private void gotoGameStart() {
-       
-        SceneManager.LoadScene("BedScene", LoadSceneMode.Additive);
-        SceneManager.UnloadSceneAsync(gameObject.scene.name);
+    private void GotoGameStart() {
+        GameManager.Instance.sceneTransisionEvent = new GameManager.SceneTransisionEvent(gameObject.scene.name, "BedScene");
     }
 
-    private void gotoCredits()
+    private void GotoCredits()
     {
-        SceneManager.LoadScene("CreditsScene", LoadSceneMode.Additive);
-        SceneManager.UnloadSceneAsync(gameObject.scene.name);
+        GameManager.Instance.sceneTransisionEvent = new GameManager.SceneTransisionEvent(gameObject.scene.name, "CreditsScene");
     }
 
 }

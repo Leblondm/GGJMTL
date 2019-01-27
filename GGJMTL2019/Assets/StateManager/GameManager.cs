@@ -18,6 +18,16 @@ public class GameManager
             return GameManager.instance;
         }
     }
+    public class SceneTransisionEvent
+    {
+        public string originSceneName;
+        public string targetSceneName;
+        public SceneTransisionEvent(string _originSceneName, string _targetSceneName)
+        {
+            originSceneName = _originSceneName;
+            targetSceneName = _targetSceneName;
+        }
+    }
     public bool isNormalWorld = true;
     public float otherWorldTimeout = 10f;
     public float remainingTimeInOtherWorld;
@@ -25,6 +35,7 @@ public class GameManager
     public Scene currentSceneOtherWorld;
     public string otherWorldSceneNameInitiator;
     public Inventory inventory = new Inventory();
+    public SceneTransisionEvent sceneTransisionEvent = null;
     public bool isBedroomLocked = true;
     public bool inFrontOfBedroomDoor;
 

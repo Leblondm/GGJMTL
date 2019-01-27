@@ -17,7 +17,7 @@ public class SceneController : MonoBehaviour
         SceneManager.LoadScene(darkWorldSceneName, LoadSceneMode.Additive);
         GameManager.Instance.currentSceneOtherWorld = SceneManager.GetSceneByName(darkWorldSceneName);
     }
-
+    
 
     private void FixedUpdate()
     {
@@ -30,6 +30,5 @@ public class SceneController : MonoBehaviour
     private void OnDestroy()
     {
         SceneManager.UnloadSceneAsync(GameManager.Instance.currentSceneOtherWorld);
-       // SceneManager.LoadScene("MainScene", LoadSceneMode.Additive);
     }
 }
