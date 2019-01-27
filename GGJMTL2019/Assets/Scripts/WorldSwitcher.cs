@@ -77,9 +77,11 @@ public class WorldSwitcher : MonoBehaviour
                 gameManager.remainingTimeInOtherWorld = time;
                 yield return new WaitForSeconds(1f);
             }
-            SceneManager.LoadScene("GetAsleepInfo", LoadSceneMode.Additive);
             gameManager.isNormalWorld = true;
             StartCoroutine(updateOtherWorldVisibility());
+            GameManager.Instance.sceneTransisionEvent = new GameManager.SceneTransisionEvent(gameObject.scene.name, "GetAsleepInfo");
+            //SceneManager.LoadScene("GetAsleepInfo", LoadSceneMode.Additive);
+            
         }
         yield return null;
         
