@@ -23,7 +23,6 @@ public class PlayerController : MonoBehaviour
     {
         gameManager = GameManager.Instance;
         controller.OnLandEvent.AddListener(() => {
-            Debug.Log("LANDED !");
             canJump = true;
             animator.SetBool("IsJumping", false);
         });

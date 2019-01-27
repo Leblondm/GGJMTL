@@ -20,26 +20,30 @@ public class BedRoomUnlocker : MonoBehaviour
                 lockedDoor = currentComponent.gameObject;
             }
         }
+        updateDoorState();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetButtonDown("Fire2") && !GameManager.Instance.isNormalWorld && GameManager.Instance.inFrontOfBedroomDoor && GameManager.Instance.inventory.hasItem(Inventory.ItemTypes.BedRoomKey) )
+        if(Input.GetButtonDown("User action") && !GameManager.Instance.isNormalWorld && GameManager.Instance.inFrontOfBedroomDoor && GameManager.Instance.inventory.hasItem(Inventory.ItemTypes.BedRoomKey) )
         {
             GameManager.Instance.isBedroomLocked = false;
             StartCoroutine(congratulations());
         }
+    }
 
 
+    private void updateDoorState() {
+        openDoor.SetActive(!GameManager.Instance.isBedroomLocked);
+        lockedDoor.SetActive(GameManager.Instance.isBedroomLocked);
     }
 
     private IEnumerator congratulations() {
         GameManager.Instance.bedroomTextMessage = "Yeay! Go and explore now :)";
         yield return new WaitForSeconds(2);
+        updateDoorState();
         GameManager.Instance.bedroomTextMessage = "";
-        openDoor.SetActive(!GameManager.Instance.isBedroomLocked);
-        lockedDoor.SetActive(GameManager.Instance.isBedroomLocked);
         yield return null;
     }
 }
