@@ -58,13 +58,13 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Desk1" && Input.GetButtonDown("Fire2"))
+        if (other.gameObject.tag == "Desk1" && Input.GetButtonDown("User action"))
         {
             Debug.Log("Tu as trouvé une clé!!");
             gameManager.inventory.addItem(Inventory.ItemTypes.Desk1);
         }
 
-        if (other.gameObject.tag == "BedRoomKey" && Input.GetButtonDown("Fire2"))
+        if (other.gameObject.tag == "BedRoomKey" && Input.GetButtonDown("User action"))
         {
             gameManager.bedroomTextMessage = "Maybe you can use this key...";
             gameManager.inventory.addItem(Inventory.ItemTypes.BedRoomKey);
