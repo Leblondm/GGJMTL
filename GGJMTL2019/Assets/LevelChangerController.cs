@@ -9,13 +9,16 @@ public class LevelChangerController : MonoBehaviour
 
     private string levelToUnload;
     private string levelToLoad;
+    private bool levelChangeInProgess;
 
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.Instance.sceneTransisionEvent != null)
+        if (GameManager.Instance.sceneTransisionEvent != null && !levelChangeInProgess)
         {
+            levelChangeInProgess = true;
             levelToUnload = GameManager.Instance.sceneTransisionEvent.originSceneName;
+            levelToUnload = levelToUnload.Replace("Dark", "");
             levelToLoad = GameManager.Instance.sceneTransisionEvent.targetSceneName;
             GameManager.Instance.sceneTransisionEvent = null;
             FadeToLevel();
@@ -34,8 +37,19 @@ public class LevelChangerController : MonoBehaviour
 
     public void OnFadeComplete()
     {
-        SceneManager.LoadScene(levelToLoad, LoadSceneMode.Additive);
-        SceneManager.UnloadSceneAsync(levelToUnload);
-        FadeIntoLevel();
+        StartCoroutine(dirtyFix());
     }
+
+    public IEnumerator dirtyFix() {
+
+        SceneManager.UnloadSceneAsync(levelToUnload);
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene(levelToLoad, LoadSceneMode.Additive);
+
+        FadeIntoLevel();
+        levelChangeInProgess = false;
+        yield return null;
+
+    }
+
 }

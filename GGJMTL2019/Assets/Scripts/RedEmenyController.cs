@@ -61,17 +61,9 @@ public class RedEmenyController : MonoBehaviour
             animator.SetTrigger("Attacks");
             playerKilled = true;
             player.kill();
-            StartCoroutine(TriggerGameOver(player));
+            GameManager.Instance.sceneTransisionEvent = new GameManager.SceneTransisionEvent(gameObject.scene.name, "GetAsleepInfo");
         }
     }
 
-    private IEnumerator TriggerGameOver(PlayerController player)
-    {
-        yield return new WaitForSeconds(2);
-
-        Scene currentScene = gameObject.scene;
-        SceneManager.UnloadSceneAsync(currentScene);
-        SceneManager.LoadScene("GetAsleepInfo", LoadSceneMode.Additive);
-
-    }
+ 
 }

@@ -13,9 +13,12 @@ public class ReturnToBed : MonoBehaviour
 
     private IEnumerator ReturnToBedNow()
     {
+        GameManager.Instance.isNormalWorld = true;
+        GameManager.Instance.remainingTimeInOtherWorld = 0;
         yield return new WaitForSeconds(5);
 
         Scene currentScene = gameObject.scene;
+
         GameManager.Instance.sceneTransisionEvent = new GameManager.SceneTransisionEvent(gameObject.scene.name, "BedScene");
     }
 }
