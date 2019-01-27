@@ -4363,7 +4363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f05c63ce74e15a242be04ef12f51e5a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetScene: MainScene
+  targetScene: Runaway
 --- !u!61 &1532346441
 BoxCollider2D:
   m_ObjectHideFlags: 0

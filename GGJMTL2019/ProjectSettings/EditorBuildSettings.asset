@@ -35,4 +35,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GetAsleepInfo.unity
     guid: 403749abe2d794d07afd9ef6fbaa3d42
+  - enabled: 1
+    path: Assets/Scenes/Runaway.unity
+    guid: 748b73b541d5f4e089c189e333de7843
+  - enabled: 1
+    path: Assets/Scenes/RunawayDark.unity
+    guid: be422976061a14ac68cf2c35e3b0d8ac
   m_configObjects: {}
