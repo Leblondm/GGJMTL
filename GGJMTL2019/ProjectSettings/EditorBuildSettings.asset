@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainSceneDark.unity
     guid: 9f315f42a07bac64fb148bf6b1b935ca
+  - enabled: 1
+    path: Assets/Scenes/GetAsleepInfo.unity
+    guid: 403749abe2d794d07afd9ef6fbaa3d42
   m_configObjects: {}
