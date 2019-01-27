@@ -854,7 +854,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f05c63ce74e15a242be04ef12f51e5a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetScene: BedScene
+  targetScene: Runaway
 --- !u!1001 &726548356
 PrefabInstance:
   m_ObjectHideFlags: 0
