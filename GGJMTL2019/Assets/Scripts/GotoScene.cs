@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class GotoScene : MonoBehaviour
 {
-
     public string targetScene;
 
     // Start is called before the first frame update
@@ -19,9 +18,12 @@ public class GotoScene : MonoBehaviour
     {
         if (!isSceneSwitching && GameManager.Instance.sceneTransisionEvent == null && collision.gameObject.tag == "Player")
         {
-            Debug.Log("YOLO " + gameObject.scene.name);
             isSceneSwitching = true;
             GameManager.Instance.sceneTransisionEvent = new GameManager.SceneTransisionEvent(gameObject.scene.name, targetScene);
+            if (targetScene == "CreditsScene")
+            {
+                SceneManager.LoadScene("MusicScene", LoadSceneMode.Additive);
+            }
         }
         
     }

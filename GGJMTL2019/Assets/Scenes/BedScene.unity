@@ -185,7 +185,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 28237468}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.55, y: -3.43, z: 0}
+  m_LocalPosition: {x: -6.6, y: -3.55, z: 0}
   m_LocalScale: {x: -1.45469, y: 1.3532, z: 1.3532}
   m_Children:
   - {fileID: 291580739}
@@ -3932,7 +3932,7 @@ GameObject:
   - component: {fileID: 285723295}
   - component: {fileID: 285723296}
   - component: {fileID: 285723297}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BedRoomDoorScript
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4016,7 +4016,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 291580738}
   m_LocalRotation: {x: -0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.1505029, y: 2.01, z: 0}
+  m_LocalPosition: {x: 1.1505029, y: 1.94, z: 0}
   m_LocalScale: {x: -0.13896781, y: 0.7389891, z: 0.7389891}
   m_Children: []
   m_Father: {fileID: 28237470}
@@ -4436,7 +4436,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 830531188}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BedRoomDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4889,6 +4889,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 212937048718191456, guid: 4c982269016456b4bad3db44c7da536e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212937048718191456, guid: 4c982269016456b4bad3db44c7da536e,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c982269016456b4bad3db44c7da536e, type: 3}
 --- !u!1 &1098574435
@@ -4901,7 +4911,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1098574436}
   - component: {fileID: 1098574437}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LockedDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4982,7 +4992,7 @@ GameObject:
   - component: {fileID: 1182206450}
   - component: {fileID: 1182206452}
   - component: {fileID: 1182206451}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MainSceneLocked
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5207,7 +5217,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1400939130}
   - component: {fileID: 1400939129}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: OpenDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5345,7 +5355,7 @@ GameObject:
   - component: {fileID: 1532346442}
   - component: {fileID: 1532346441}
   - component: {fileID: 1532346440}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ToMainScene
   m_TagString: Untagged
   m_Icon: {fileID: 0}

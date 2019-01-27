@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
 
     float horizontalMove = 0f;
     bool jump = false;
-    bool canJump = false;
+    bool canJump = true;
     bool crouch = false;
     bool cantMove = false;
 
@@ -38,10 +38,10 @@ public class PlayerController : MonoBehaviour
 
         if (canJump && Input.GetButtonDown("Jump"))
         {
-            //Debug.Log("Jump");
+            Debug.Log("Jump");
             jump = true;
-            animator.SetBool("IsJumping", true);
             canJump = false;
+            animator.SetBool("IsJumping", true);
         }
 
         crouch = Input.GetAxis("Vertical") < 0;
@@ -54,6 +54,7 @@ public class PlayerController : MonoBehaviour
         // Move Character
         controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
         jump = false;
+        canJump = true;
     }
 
     void OnTriggerStay2D(Collider2D other)
@@ -76,6 +77,8 @@ public class PlayerController : MonoBehaviour
     public void kill()
     {
         cantMove = true;
+        canJump = false;
         animator.SetTrigger("Killed");
+        FindObjectOfType<AudioManager>().Play("gameover_audio"); 
     }
 }
