@@ -17,7 +17,7 @@ public class CameraController : MonoBehaviour
 
     private void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Player").transform;
+        
     }
 
 
@@ -25,6 +25,8 @@ public class CameraController : MonoBehaviour
     void FixedUpdate()
     {
         if (!target) return;
+
+        target = GameObject.FindGameObjectWithTag("Player").transform;
         Vector3 desiredPosition = target.position + offset;
         Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
         smoothedPosition.x = Mathf.Max(smoothedPosition.x, offsetXLeft);
